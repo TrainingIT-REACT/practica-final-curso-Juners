@@ -1,0 +1,7 @@
+.song a {
+  padding: 5px 15px;
+}
+
+.song:hover {
+  background-color: lightgrey;
+}

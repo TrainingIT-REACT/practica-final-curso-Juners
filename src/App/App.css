@@ -1,8 +1,35 @@
-.App {
-  margin: 3em auto;
-  max-width: 50em;
+#main-menu {
+  background-color: #e9e8e8;
+  height: 100%;
+  border-right: 5px solid black;
+}
+#main-menu .menu li > a:hover {
+  background-color: #c4c4c4;
+}
+#main-menu .menu li > a {
+  width: 100%;
+  text-align: center;
+  color: black;
+  padding: 30px;
+  font-size: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+#main-menu .menu li > a.active {
+  background-color: #c4c4c4;
 }
 
-.App h1 {
-  text-align: center;
+#main-menu .menu .menu-text {
+  border-bottom: 25px solid black;
+  padding: 50px;
+  cursor: context-menu;
+}
+
+main {
+  padding: 10px;
+}
+
+main.scrollable {
+  max-height: 100vh;
+  overflow: auto;
 }

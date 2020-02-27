@@ -1,0 +1,7 @@
+.album-list .album a {
+  padding: 5px 15px;
+}
+
+.album-list .album:hover {
+  background-color: lightgrey;
+}
