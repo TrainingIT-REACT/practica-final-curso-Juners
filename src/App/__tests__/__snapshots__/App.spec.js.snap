@@ -1,27 +1,125 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App renders correctly 1`] = `
-<div
-  class="App"
->
-  <header
-    class="App-header"
-  >
-    <p>
-      Edit 
-      <code>
-        src/App.js
-      </code>
-       and save to reload.
-    </p>
-    <a
-      class="App-link"
-      href="https://reactjs.org"
-      rel="noopener noreferrer"
-      target="_blank"
+exports[`App user signed in renders correctly not signed in 1`] = `
+<StrictMode>
+  <BrowserRouter>
+    <div
+      className="grid-x"
+      style={
+        Object {
+          "height": "100%",
+        }
+      }
     >
-      Learn React
-    </a>
-  </header>
-</div>
+      <nav
+        className="cell small-12 large-3"
+        id="main-menu"
+      >
+        <ul
+          className="vertical menu align-center"
+        >
+          <li
+            className="menu-text h2"
+          >
+            Reactify
+          </li>
+          <li>
+            <NavLink
+              activeClassName="active"
+              exact={true}
+              to="/"
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              activeClassName="active"
+              to="/album"
+            >
+              Albums
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              activeClassName="active"
+              to="/login"
+            >
+              Login
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+      <main
+        className="cell small-12 large-9 scrollable"
+      >
+        <Switch>
+          <Route
+            component={
+              Object {
+                "$$typeof": Symbol(react.memo),
+                "WrappedComponent": [Function],
+                "compare": null,
+                "displayName": "Connect(Home)",
+                "type": [Function],
+                Symbol(Symbol.hasInstance): [Function],
+              }
+            }
+            exact={true}
+            path="/"
+          />
+          <Route
+            component={[Function]}
+            path="/album"
+          />
+          <Route
+            component={
+              Object {
+                "$$typeof": Symbol(react.memo),
+                "WrappedComponent": [Function],
+                "compare": null,
+                "displayName": "Connect(MusicPlayer)",
+                "type": [Function],
+                Symbol(Symbol.hasInstance): [Function],
+              }
+            }
+            exact={true}
+            path="/player"
+          />
+          <Route
+            component={
+              Object {
+                "$$typeof": Symbol(react.memo),
+                "WrappedComponent": [Function],
+                "compare": null,
+                "displayName": "Connect(Login)",
+                "type": [Function],
+                Symbol(Symbol.hasInstance): [Function],
+              }
+            }
+            exact={true}
+            path="/login"
+          />
+          <Connect(PrivateRoute)
+            component={
+              Object {
+                "$$typeof": Symbol(react.memo),
+                "WrappedComponent": [Function],
+                "compare": null,
+                "displayName": "Connect(Profile)",
+                "type": [Function],
+                Symbol(Symbol.hasInstance): [Function],
+              }
+            }
+            exact={true}
+            path="/profile"
+          />
+          <Route
+            component={[Function]}
+          />
+        </Switch>
+      </main>
+    </div>
+  </BrowserRouter>
+</StrictMode>
 `;

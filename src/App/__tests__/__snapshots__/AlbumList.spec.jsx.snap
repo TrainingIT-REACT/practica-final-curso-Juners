@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AlbumList Render renders correctly 1`] = `
+<div
+  class="album-list"
+>
+  <div
+    class="album grid-container full"
+  >
+    <a
+      class="grid-x"
+      href="/album/1"
+    >
+      first
+    </a>
+  </div>
+  <div
+    class="album grid-container full"
+  >
+    <a
+      class="grid-x"
+      href="/album/2"
+    >
+      second
+    </a>
+  </div>
+</div>
+`;

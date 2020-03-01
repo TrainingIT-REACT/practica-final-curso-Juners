@@ -15,7 +15,7 @@ import NotFound from "./Pages/NotFound";
 import MusicPlayer from "./Pages/MusicPlayer";
 import Login from "./Pages/Login";
 
-const App = ({ user }) => (
+export const App = ({ user }) => (
   <React.StrictMode>
     <Router>
       <div className="grid-x" style={{ height: "100%" }}>
@@ -59,7 +59,7 @@ const App = ({ user }) => (
           </Switch>
         </main>
       </div>
-    </Router >
+    </Router>
   </React.StrictMode>
 );
 
