@@ -19,11 +19,10 @@ const Song = ({ song, onSelect }) => {
           onSelect(song);
         }}
       >
-        <div className="cell small-1">
+        <div className="cell small-2">
           {`${strPadLeft(minutes, 0, 2)}:${strPadLeft(seconds, 0, 2)}`}
         </div>
-        <div className="cell small-11">{song.name}</div>
-        {/* <div className="cell">{album.artist}</div> */}
+        <div className="cell small-10">{song.name}</div>
       </NavLink>
     </div>
   );

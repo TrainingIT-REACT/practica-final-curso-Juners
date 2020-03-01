@@ -9,7 +9,7 @@ class Home extends Component {
   }
 
   renderSongs() {
-    const { isLoading, error, list} = this.props;
+    const { isLoading, error, list } = this.props;
 
     if (isLoading) {
       return <p>Cargando...</p>;
@@ -23,7 +23,8 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <h2 className="h2">Recommended Music</h2>
+        <h1 className="h1">Recommended Music</h1>
+        <hr />
         {this.renderSongs()}
       </div>
     );

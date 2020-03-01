@@ -1,9 +1,15 @@
-import { getAlbum } from "../actions/album";
+import {
+  getAlbum,
+  getAlbumSongs
+} from "../actions/album";
+import { append } from "ramda";
 
 const initialState = {
-  isLoading: false,
+  history: [],
+  isLoadingAlbums: false,
+  isLoadingSongs: false,
   album: {},
-  songs: {},
+  songs: [],
   error: false
 };
 
@@ -12,19 +18,38 @@ const album = (state = initialState, { type, payload }) => {
     case String(getAlbum.pending):
       return {
         ...state,
-        isLoading: true,
+        isLoadingAlbums: true,
         album: {}
       };
     case String(getAlbum.fulfilled):
       return {
         ...state,
-        isLoading: false,
-        album: payload
+        isLoadingAlbums: false,
+        album: payload,
+        history: append(payload, state.history)
       };
     case String(getAlbum.rejected):
       return {
         ...state,
-        isLoading: false,
+        isLoadingAlbums: false,
+        error: true
+      };
+    case String(getAlbumSongs.pending):
+      return {
+        ...state,
+        isLoadingSongs: true,
+        songs: []
+      };
+    case String(getAlbumSongs.fulfilled):
+      return {
+        ...state,
+        isLoadingSongs: false,
+        songs: payload
+      };
+    case String(getAlbumSongs.rejected):
+      return {
+        ...state,
+        isLoadingSongs: false,
         error: true
       };
     default:

@@ -1,12 +1,16 @@
 import React, { Component } from "react";
-import { getAlbum } from "../../redux/actions/album";
+import { getAlbum, getAlbumSongs } from "../../redux/actions/album";
 import { connect } from "react-redux";
 import "./AlbumPage.css";
+import SongList from "../../components/SongList";
 
 class AlbumPage extends Component {
   componentDidMount() {
     const { params } = this.props.match;
-    if (params) this.props.getAlbum(params.id);
+    if (params) {
+      this.props.getAlbum(params.id);
+      this.props.getAlbumSongs(params.id);
+    }
   }
 
   render() {
@@ -14,23 +18,29 @@ class AlbumPage extends Component {
     return (
       <div className="album grid-container full">
         <div className="grid-x">
-          <img src={album.cover} alt={`Cover of the album`} className="cover" />
-          <div className="cell sm-1 grid-y">
-            <span className="name h4">{album.name}</span>
+          <div className="cell small-4">
+            <img src={album.cover} alt={`Cover of the album`} className="cover" />
+          </div>
+          <div className="cell small-8 grid-y">
+            <span className="name h2">{album.name}</span>
             <span className="artist h4">{album.artist}</span>
           </div>
         </div>
+        <hr />
+        <span className="h3">Songs</span>
+        <SongList songs={this.props.songs} />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  ...(state.album || {})
+  ...(state.album || { album: {} })
 });
 
 const mapDispatchToProps = {
-  getAlbum
+  getAlbum,
+  getAlbumSongs,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AlbumPage);

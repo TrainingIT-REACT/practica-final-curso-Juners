@@ -4,18 +4,18 @@ import { connect } from "react-redux";
 import AlbumList from "../../components/AlbumList";
 import { Switch, Route } from "react-router-dom";
 import AlbumPage from "../AlbumPage/AlbumPage";
+import NotFound from "../NotFound";
 
 class AlbumsListPage extends Component {
   componentDidMount() {
     this.props.getAlbums();
-    console.log("hola", this.props.albums);
   }
 
   render() {
-    console.log("hola", this.props.albums);
     return (
       <>
-        <h2 className="h2">Albums</h2>
+        <h1 className="h1">Albums</h1>
+        <hr />
         <AlbumList albums={this.props.albums} />
       </>
     );
@@ -23,7 +23,7 @@ class AlbumsListPage extends Component {
 }
 
 const mapStateToProps = state => ({
-  ...(state.albumsList || {})
+  ...(state.albumsList || { albumsList: {} })
 });
 
 const mapDispatchToProps = {
@@ -37,8 +37,9 @@ const connectedAlbumsListPage = connect(
 
 const AlbumsListRender = () => (
   <Switch>
-    <Route path="/album/:id" component={AlbumPage} />
-    <Route component={connectedAlbumsListPage} />
+    <Route path="/album/:id" component={AlbumPage} exact />
+    <Route path="/album" component={connectedAlbumsListPage} exact />
+    <Route component={NotFound} />
   </Switch>
 );
 
