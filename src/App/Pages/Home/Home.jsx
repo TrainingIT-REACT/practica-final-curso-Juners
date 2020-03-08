@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getSongs } from "../../redux/actions/songs";
 import SongList from "../../components/SongList";
-import { sampleSize } from "lodash";
+import sampleSize from "lodash/sampleSize";
 
 class Home extends Component {
   componentDidMount() {

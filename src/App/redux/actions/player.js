@@ -8,5 +8,5 @@ export const playSong = song => ({
 });
 
 export const getAlbum = createAsyncAction("LOAD_ALBUM", async (song) => {
-  return fetch(`http://localhost:3001/albums/${song.album_id}`).then(res => res.json());
+  return fetch(`/api/albums/${song.album_id}`).then(res => res.json());
 });

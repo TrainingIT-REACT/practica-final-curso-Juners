@@ -1,7 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { sample } from "lodash";
+import sample from "lodash/sample";
 import { login } from "../../redux/actions/user";
 
 const name = () => sample(["Albert", "Adrian", "Carla", "Maria", "Tom", "Rose"]);

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/runtime": "^7.8.7",
     "foundation-sites": "^6.6.1",
     "html-webpack-plugin": "^3.2.0",
     "lodash": "^4.17.15",
@@ -18,12 +19,13 @@
   },
   "scripts": {
     "start": "npm-run-all --parallel client server",
-    "client": "react-scripts start",
+    "client": "webpack-dev-server --open --mode=development",
     "server": "json-server --watch server/data.json --static server/static --port 3001",
-    "build": "react-scripts build",
+    "production": "npm-run-all --parallel client-production server",
+    "client-production": "webpack-dev-server --open --mode=production",
+    "build": "webpack",
     "test:integration": "jest -c integration/jest.config.js",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "jest"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,14 +37,19 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.7",
+    "@babel/plugin-transform-runtime": "^7.8.3",
     "@babel/polyfill": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
     "@babel/preset-react": "^7.8.3",
     "babel-loader": "^8.0.6",
+    "babel-plugin-lodash": "^3.3.4",
+    "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.4.2",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.8.0",
+    "jest": "^25.1.0",
     "jest-enzyme": "^7.0.1",
     "jest-puppeteer": "^4.4.0",
     "json-server": "^0.14.2",
@@ -53,5 +60,13 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
   },
-  "proxy": "http://localhost:3001"
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    },
+    "setupFilesAfterEnv": [
+      "<rootDir>src/setupTests.js"
+    ]
+  }
 }

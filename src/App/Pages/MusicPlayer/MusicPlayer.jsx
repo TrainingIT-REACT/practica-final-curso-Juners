@@ -11,7 +11,7 @@ const PlayerRender = ({ song, album }) => {
     <div className="player grid-container full">
       <div className="grid-x">
         <div className="cell small-2" style={{ padding: "5px" }}>
-          <img src={`http://localhost:3001/${album.cover}`} alt={`Cover of the album`} className="cover" />
+          <img src={`/api/${album.cover}`} alt={`Cover of the album`} className="cover" />
         </div>
         <div className="cell small-10 grid-y">
           <span className="name h2">{album.name}</span>
@@ -20,7 +20,7 @@ const PlayerRender = ({ song, album }) => {
       </div>
       <div className="grid-x">
         <span className="current-time h5 cell small-12">
-          <audio src={`http://localhost:3001/${song.audio}`} controls type="audio/mpeg" />
+          <audio src={`/api/${song.audio}`} controls type="audio/mpeg" />
         </span>
       </div>
     </div>
