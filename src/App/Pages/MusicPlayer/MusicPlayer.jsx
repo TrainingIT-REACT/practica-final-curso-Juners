@@ -11,7 +11,7 @@ const PlayerRender = ({ song, album }) => {
     <div className="player grid-container full">
       <div className="grid-x">
         <div className="cell small-2" style={{ padding: "5px" }}>
-          <img src={album.cover} alt={`Cover of the album`} className="cover" />
+          <img src={`http://localhost:3001/${album.cover}`} alt={`Cover of the album`} className="cover" />
         </div>
         <div className="cell small-10 grid-y">
           <span className="name h2">{album.name}</span>

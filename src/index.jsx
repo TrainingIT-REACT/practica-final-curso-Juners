@@ -8,6 +8,8 @@ import store from "./App/redux/store";
 import "./vendor/foundation.min.css";
 import "./vendor/reset.css";
 
+import '@babel/polyfill';
+
 ReactDOM.render(
   <Provider store={store}>
     <div id="app" className="grid-container full">

@@ -1,3 +1,3 @@
-import MusicPlayer from "./MusicPlayer";
+import MusicPlayer from "./MusicPlayer.jsx";
 
 export default MusicPlayer;

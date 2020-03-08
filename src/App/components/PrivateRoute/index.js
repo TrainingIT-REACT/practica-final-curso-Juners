@@ -1,3 +1,3 @@
-import PrivateRoute from "./PrivateRoute";
+import PrivateRoute from "./PrivateRoute.jsx";
 
 export default PrivateRoute;

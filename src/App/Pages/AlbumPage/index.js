@@ -1,3 +1,3 @@
-import AlbumsPage from './AlbumPage';
+import AlbumsPage from './AlbumPage.jsx';
 
 export default AlbumsPage;

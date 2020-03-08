@@ -3,7 +3,7 @@ import { getAlbums } from "../../redux/actions/albumsList";
 import { connect } from "react-redux";
 import AlbumList from "../../components/AlbumList";
 import { Switch, Route } from "react-router-dom";
-import AlbumPage from "../AlbumPage/AlbumPage";
+import AlbumPage from "../AlbumPage";
 import NotFound from "../NotFound";
 
 class AlbumsListPage extends Component {

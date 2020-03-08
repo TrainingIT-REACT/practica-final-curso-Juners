@@ -21,7 +21,7 @@ class AlbumPage extends Component {
       <div className="album grid-container full">
         <div className="grid-x">
           <div className="cell small-4">
-            <img src={album.cover} alt={`Cover of the album`} className="cover" />
+            <img src={`http://localhost:3001/${album.cover}`} alt={`Cover of the album`} className="cover" />
           </div>
           <div className="cell small-8 grid-y">
             <span className="name h2">{album.name}</span>
