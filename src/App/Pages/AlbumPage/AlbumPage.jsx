@@ -15,6 +15,8 @@ class AlbumPage extends Component {
 
   render() {
     const album = this.props.album;
+    const albumId = this.props.match.params.id;
+    const albumSongs = this.props.songs ? this.props.songs.filter(s => s.album_id === Number(albumId)) : [];
     return (
       <div className="album grid-container full">
         <div className="grid-x">
@@ -28,7 +30,7 @@ class AlbumPage extends Component {
         </div>
         <hr />
         <span className="h3">Songs</span>
-        <SongList songs={this.props.songs} />
+        <SongList songs={albumSongs} />
       </div>
     );
   }

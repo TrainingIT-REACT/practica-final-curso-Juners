@@ -1,5 +1,4 @@
 import { createAsyncAction } from "redux-promise-middleware-actions";
-import { times } from "ramda";
 
 export const PLAY_SONG = "PLAY_SONG";
 
