@@ -1,4 +1,4 @@
-import { PLAY_SONG, getAlbum, TOGGLE_PLAYING_STATUS, UPDATE_PLAYED_TIME } from "../actions/player";
+import { PLAY_SONG, getAlbum } from "../actions/player";
 import { append } from "ramda";
 
 const initialState = {
@@ -42,16 +42,6 @@ const player = (state = initialState, { type, payload }) => {
         ...state,
         isLoading: false,
         error: true
-      };
-    case TOGGLE_PLAYING_STATUS:
-      return {
-        ...state,
-        playing: !state.playing
-      };
-    case UPDATE_PLAYED_TIME:
-      return {
-        ...state,
-        playedTime: payload
       };
     default:
       return state;
