@@ -21,6 +21,7 @@ const isLocalhost = Boolean(
 );
 
 export function register(config) {
+  console.log(process.env);
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
@@ -32,7 +33,7 @@ export function register(config) {
     }
 
     window.addEventListener('load', () => {
-      const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
+      const swUrl = `/sw.js`;
 
       if (isLocalhost) {
         // This is running on localhost. Let's check if a service worker still exists or not.
@@ -50,6 +51,21 @@ export function register(config) {
         // Is not localhost. Just register service worker
         registerValidSW(swUrl, config);
       }
+      registration.addEventListener('updatefound', () => {
+        // Obtenemos el nuevo worker
+        const worker = registration.installing;
+        // Nos suscribimos a los cambios en su ciclo de vida        
+        worker.addEventListener('statechange', () => {
+          // Comprobamos si ha habido un cambio
+          if (worker.state === 'installed') {
+            // Una vez que se ha instalado, mostramos el botón
+            const updateApp = document.getElementById('updateApplication');
+            updateApp.classList.add('show');
+          }
+        });
+      });
+    }, (err) => {
+      console.log('El registro de SW ha fallado :(', err);
     });
   }
 }

@@ -1,15 +1,17 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   mode: 'development',
   entry: {
     main: './src/index.jsx',
-    sw: './src/serviceWorker.js'
+    sw: './src/sw.js'
   },
   output: {
     path: path.resolve(__dirname, 'build'),
+    filename: '[name].[chunkhash:8].js'
   },
   module: {
     rules: [
@@ -35,7 +37,10 @@ module.exports = {
     }),
     new CopyPlugin([
       { from: 'public', to: '' },
-    ])
+    ]),
+    new WorkboxPlugin.InjectManifest({
+      swSrc: './src/sw.js',
+    })
   ],
   devServer: {
     contentBase: './build',
